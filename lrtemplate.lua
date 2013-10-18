@@ -4,9 +4,7 @@ function ZSTR(s)
 	return s
 end
 
-local t = {}
-
-t.loadlrtemplate = function(s)
+local function loadlrtemplate(s)
 	if s:sub(1,5)=="s = {" then
 		s = "return "..s:sub(4)
 		local c = loadstring(s) -- TODO secure this
@@ -17,4 +15,7 @@ t.loadlrtemplate = function(s)
 end
 
 
-return t
+return 
+{
+	loadlrtemplate = loadlrtemplate
+}
